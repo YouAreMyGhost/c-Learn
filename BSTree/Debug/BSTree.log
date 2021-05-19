@@ -1,0 +1,4 @@
+﻿  BSTree.cpp
+D:\vs2019\BSTree\BSTree.h(79): warning C4715: “BSTree<int>::Insert”: 不是所有的控件路径都返回值
+D:\vs2019\BSTree\BSTreeKV.h(81): warning C4715: “BSTreeKV<std::basic_string<char,std::char_traits<char>,std::allocator<char> >,int>::Insert”: 不是所有的控件路径都返回值
+  BSTree.vcxproj -> D:\vs2019\BSTree\Debug\BSTree.exe
