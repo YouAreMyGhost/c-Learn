@@ -1,0 +1,50 @@
+void GetFavoriteFruit(const vector<string>& fruits, size_t k)
+{
+	typedef map<string, int>::iterator CountMapIt;
+	map<string, int> countMap;
+	for (auto& e : fruits)
+	{
+		countMap[e]++;
+	}
+
+	// 排序 1、vecctor+sort 2、multimap/multiset
+	vector<CountMapIt> v;
+	CountMapIt it = countMap.begin();
+
+	while (it != countMap.end())
+	{
+		v.push_back(it);
+		++it;
+	}
+
+	struct CountMapItCompare
+	{
+		bool operator()(const CountMapIt& it1,
+			const CountMapIt& it2)
+		{
+			return it1->second > it2->second;
+		}
+	};
+
+	sort(v.begin(), v.end(), CountMapItCompare());
+
+	for (auto& e : v)
+	{
+		cout << e->first << ":" << e->second << endl;
+		k--;
+		if (k == 0)
+		{
+			break;
+		}
+	}
+}
+
+
+
+
+int main()
+{
+	vector<string> v = { "西瓜", "樱桃", "西瓜", "樱桃", "樱桃", "香蕉", "香蕉", "香蕉", "香蕉", "苹果", "榴莲", "榴莲", "香蕉", "香蕉", "香蕉", "香蕉", "西瓜", "西瓜", "西瓜" };
+	GetFavoriteFruit(v, 2);
+	return 0;
+}
